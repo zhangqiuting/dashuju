@@ -1,0 +1,21 @@
+{
+  "name": "dashuju",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.9"
+  },
+  "devDependencies": {
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.6.1",
+    "morgan": "^1.9.0",
+    "serve-favicon": "^2.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

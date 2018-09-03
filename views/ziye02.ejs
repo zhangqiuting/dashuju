@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子页02</title>
+    <link rel="stylesheet" href="stylesheets/zy02.css">
+</head>
+<body>
+<div class="top">
+    <a href="shouye">招聘会数据</a>
+    <a href="ziye01" >毕业生期望薪酬分析</a>
+    <a href="ziye02" >毕业生数据</a>
+</div>
+<div class="section_three">
+    <div class="section_three_head">
+        <img src="images/logo03.png" alt="">
+        <img src="images/yh.png" alt="">
+    </div>
+    <div class="section_three_bot">
+        <div class="c1" id="main1">
+
+        </div>
+        <div class="c2">
+            <div class="c3" id="main3">
+
+            </div>
+            <div class="c4" id="main4">
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<script src="javascripts/echarts.min.js"></script>
+<script>
+
+    var myChart1 = echarts.init(document.getElementById('main1'));
+    var option1= {
+        color: ['#cc6c54', '#00b787', '#07a0c9'],
+        title: [
+            {
+                text: '历年各学历毕业生数据趋势',
+                left: 'center',
+                top: '2%',
+                textStyle: {
+                    color: '#fff',
+                    fontSize:'12',
+                    fontWeight:'normal'
+                }
+            },
+            {
+                text: '同比新增2000人，约2%',
+                right: '11.5%',
+                bottom: '10%',
+                textStyle: {
+                    color: '#fff',
+                    fontSize:'12',
+                    fontWeight:'normal'
+                }
+            }
+        ],
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            left:'4%',
+            top: '2%',
+            textStyle: {
+                color: '#edf4ff',
+                fontSize: 10
+            },
+            itemWidth: 16,
+            itemHeight: 8,
+            data: ['本科', '大专', '高职']
+        },
+        grid: {
+            left: '1%',
+            right: '35%',
+            top: '15%',
+            bottom: '5%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            "axisLine": {
+                show: false
+            },
+            "axisTick": {
+                "show": false
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#c5c7d4',
+                    fontSize: 10
+                }
+            },
+            boundaryGap: false,
+            data: ['2011', '2012', '2013', '2014', '2015', '2016', '2017']
+        },
+        yAxis: {
+            "axisLine": {
+                lineStyle: {
+                    color: '#1c2448'
+                }
+            },
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    color: '#15274d'
+                }
+            },
+            "axisTick": {
+                "show": false
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#c5c7d4',
+                    fontSize: 10
+                }
+            },
+            type: 'value',
+            min: 0,
+            max: 7000
+        },
+        series: [
+            {
+                name: '大专',
+                smooth: true,
+                symbol: "none",
+                type: 'line',
+                // symbolSize: 6,
+                // symbol: 'circle',
+                data: [3481, 3002, 4109, 3050, 5400, 4782, 5940, 6410]
+                //
+            },
+            {
+                name: '高职',
+                smooth: true,
+                type: 'line',
+                symbol: "none",
+                // symbolSize: 6,
+                // symbol: 'circle',
+                data: [2720, 2450, 3050, 2287, 2862, 3452, 4917, 4070]
+                //
+            },
+            {
+                name: '本科',
+                smooth: true,
+                type: 'line',
+                symbol: "none",
+                // symbolSize: 6,
+                // symbol: 'circle',
+                data: [2290, 1020,3697, 832, 6200, 4720, 6920, 5831]
+                //
+            },
+            {
+                type: 'pie',
+                center: ['83%', '40%'],
+                radius: ['58%', '54%'],
+                label: {
+                    normal: {
+                        position: 'center'
+                    }
+                },
+                data: [
+                    {
+                        value: 360,
+                        name: '2017毕业生数量',
+                        itemStyle: {
+                            normal: {
+                                color: '#9e8302'
+                            }
+                        },
+                        label: {
+                            normal: {
+                                textStyle: {
+                                    color: '#fff',
+                                    fontSize: 12
+                                }
+                            }
+                        }
+                    },
+                    {
+                        value: 0,
+                        name: '',
+                        tooltip: {
+                            show: false
+                        },
+                        itemStyle: {
+                            normal: {
+                                color: '#9e8302'
+                            }
+                        },
+                        label: {
+                            normal: {
+                                textStyle: {
+                                    color: '#f4e22a',
+                                    fontSize:'22'
+                                },
+                                formatter: '\n38,786,100'
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    };
+    myChart1.setOption(option1);
+
+
+
+    var myChart3 = echarts.init(document.getElementById('main3'));
+    var option3 = {
+        title: {
+            text:'毕业生就业意向单位性质选择对比',
+            textStyle: {
+                color: '#edf4ff',
+                fontSize: 12,
+                width:'100%',
+                backgroundColor:'#fff',
+                fontWeight: 'normal'
+            },
+            x:'center',
+            top: '2%'
+        },
+        tooltip: {
+            show: "true",
+            trigger: 'item',
+        },
+        legend: {
+            data:['男','女'],
+            left: '9%',
+            top:'9%',
+            textStyle: {
+                color: '#edf4ff',
+                fontSize: 10
+            },
+            itemWidth: 8,
+            itemHeight: 8
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '2%',
+            containLabel: true
+        },
+        yAxis: {
+            type: 'value',
+            min: 0,
+            max: 35000,
+            splitNumber: 8,
+            axisLabel: {
+                formatter: '{value}',
+                textStyle:{
+                    color:"#c5c7d4",
+                    fontSize: 10
+                }
+            },
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            // 控制网格线是否显示
+            splitLine:{
+                show: true,
+                lineStyle: {
+                    // 使用深浅的间隔色
+                    color: ['#1d244e']
+                }
+            },
+        },
+        xAxis: [{
+            type: 'category',
+            axisTick: {
+                show: false
+            },
+            axisLine: {
+                show: false
+            },
+            axisLabel: {
+                interval:0,
+                rotate:30,
+                textStyle:{
+                    color:"#c5c7d4",
+                    fontSize: 10
+                }
+            },
+            data: ['报关行业','物流行业','科技研究','教育行业','政府单位','金融单位','软件行业','电子通信']
+        }, {
+            type: 'category',
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                show: false
+            },
+            splitArea: {
+                show: false
+            },
+            splitLine: {
+                show: false
+            },
+            data: ['报关行业','物流行业','科技研究','教育行业','政府单位','金融单位','软件行业','电子通信']
+        },
+
+        ],
+        series: [{
+            type: 'bar',
+            xAxisIndex: 1,
+            zlevel: 1,
+            itemStyle: {
+                normal: {
+                    color: '#121847',
+                    borderWidth: 0,
+                    shadowBlur: {
+                        shadowColor: 'rgba(26,39,84,0.8)',
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 2,
+                    },
+                }
+            },
+            barWidth: '8',
+            data: [35000, 35000, 35000,35000,35000,35000,35000,35000]
+        }, {
+            type: 'bar',
+            xAxisIndex: 1,
+            barGap: '100%',
+            data: [35000, 35000, 35000,35000,35000,35000,35000,35000],
+            zlevel: 1,
+            barWidth: '8',
+            itemStyle: {
+                normal: {
+                    color: '#121847',
+                    borderWidth: 0,
+                    shadowBlur: {
+                        shadowColor: 'rgba(26,39,84,0.8)',
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 2,
+                    },
+                }
+            },
+        },{
+            name: '男',
+            type: 'bar',
+            itemStyle: {
+                normal: {
+                    show: true,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: '#445bc3'
+                    }, {
+                        offset: 1,
+                        color: '#445bc3'
+                    }])
+                }
+            },
+            zlevel: 2,
+            barWidth: '8',
+            data:[14090, 16607, 24133, 14238, 10237, 28165, 17569, 13933]
+        }, {
+            name: '女',
+            type: 'bar',
+            barWidth: '8',
+            itemStyle: {
+                normal: {
+                    show: true,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: '#06d3d6'
+                    }, {
+                        offset: 1,
+                        color: '#06d3d6'
+                    }])
+                }
+            },
+            zlevel: 2,
+            barGap: '100%',
+            data: [16150, 14093, 9536, 22907, 15791, 5482, 16150, 12329]
+        }
+
+        ]
+    };
+    myChart3.setOption(option3);
+
+
+
+    var myChart4 = echarts.init(document.getElementById('main4'));
+    var option4 = {
+        title: {
+            text:'2017年毕业生统计',
+            textStyle: {
+                color: '#edf4ff',
+                fontSize: 12,
+                fontWeight: 'normal'
+            },
+            x:'center',
+            top: '2%'
+        },
+        tooltip: {
+            show: "true",
+            trigger: 'item',
+        },
+        legend: {
+            data:['男','女'],
+            left: '9%',
+            top:'9%',
+            textStyle: {
+                color: '#edf4ff',
+                fontSize: 10
+            },
+            itemWidth: 8,
+            itemHeight: 8
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '2%',
+            containLabel: true
+        },
+        yAxis: [{
+            type: 'category',
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                interval:0,
+                textStyle:{
+                    color:"#c5c7d4",
+                    fontSize: 10
+                }
+            },
+            data: ['学校1','学校2','学校3','学校4','学校5','学校6']
+        }, {
+            type: 'category',
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                show: false
+            },
+            splitArea: {
+                show: false
+            },
+            splitLine: {
+                show: false
+            },
+            data: ['学校1','学校2','学校3','学校4','学校5','学校6']
+        }],
+        xAxis: {
+            type: 'value',
+            min: 0,
+            max: 5000,
+            splitNumber: 12,
+            axisTick: {
+                show: false
+            },
+            axisLine: {
+                show: false
+            },
+            splitLine:{
+                show: true,
+                lineStyle: {
+                    // 使用深浅的间隔色
+                    color: ['#1d2147']
+                }
+            },
+            axisLabel: {
+                textStyle: {
+                    color: '#bac0c0',
+                    fontWeight: 'normal',
+                    fontSize: '10',
+                },
+                formatter: '{value}',
+            },
+        },
+        series: [{
+            name: '男',
+            type: 'bar',
+            itemStyle: {
+                normal: {
+                    show: true,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: '#445bc3'
+                    }, {
+                        offset: 1,
+                        color: '#445bc3'
+                    }])
+                }
+            },
+            zlevel: 2,
+            barWidth: '8',
+            barGap: '100%',
+            data: [1505, 1838, 2418, 1764, 2091, 2759]
+        },{
+            name: '女',
+            type: 'bar',
+            itemStyle: {
+                normal: {
+                    show: true,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: '#06d3d6'
+                    }, {
+                        offset: 1,
+                        color: '#06d3d6'
+                    }])
+                }
+            },
+            zlevel: 2,
+            barWidth: '8',
+            barGap: '100%',
+            data: [2643, 1429, 1894, 1560, 1644, 1350]
+        },
+            {
+                type: 'bar',
+                yAxisIndex: 1,
+                zlevel: 1,
+                itemStyle: {
+                    normal: {
+                        color: '#121847',
+                        borderWidth: 0,
+                        shadowBlur: {
+                            shadowColor: 'rgba(255,255,255,0.31)',
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 2,
+                        },
+                    }
+                },
+                barWidth: '8',
+                barGap: '100%',
+                data: [5000, 5000, 5000, 5000, 5000, 5000]
+            },
+            {
+                type: 'bar',
+                yAxisIndex: 1,
+                zlevel: 1,
+                itemStyle: {
+                    normal: {
+                        color: '#121847',
+                        borderWidth: 0,
+                        shadowBlur: {
+                            shadowColor: 'rgba(255,255,255,0.31)',
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 2,
+                        },
+                    }
+                },
+                barWidth: '8',
+                barGap: '100%',
+                data: [5000, 5000, 5000, 5000, 5000, 5000]
+            }
+        ]
+    }
+    myChart4.setOption(option4);
+</script>
